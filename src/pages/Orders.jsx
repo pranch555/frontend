@@ -27,7 +27,7 @@ export default function Orders() {
           <ul>
             {o.items.map(i => (
               <li key={i.id}>
-                {i.bookTitle} × {i.quantity} @ ${i.priceAtPurchase.toFixed(2)}
+                {i.bookTitle} × {i.quantity} @ ${Number(i.priceAtPurchase || 0).toFixed(2)}
               </li>
             ))}
           </ul>

@@ -10,7 +10,8 @@ export default function Navbar() {
     <nav style={{ padding: 16, borderBottom: '1px solid #ddd' }}>
       <Link to="/">Home</Link> |{' '}
       <Link to="/checkout">Cart ({totalQty})</Link> |{' '}
-      <Link to="/orders">My Orders</Link>
+      <Link to="/orders">My Orders</Link> |{' '}
+      <Link to="/admin/login">Admin</Link>
     </nav>
   );
 }

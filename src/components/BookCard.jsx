@@ -8,7 +8,7 @@ export default function BookCard({ book }) {
   return (
     <div style={{ border: '1px solid #ccc', padding: 16 }}>
       <h3>{book.title}</h3>
-      <p>Price: ${book.price.toFixed(2)}</p>
+      <p>Price: ${book.price ? Number(book.price).toFixed(2) : '0.00'}</p>
       <p>Stock: {book.stock}</p>
       <input
         type="number"

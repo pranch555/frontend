@@ -9,15 +9,25 @@ export default function Home() {
 
   async function load() {
     try {
-      const res = await api.get('/books', { params: q });
+      const params = {
+        title: q.title || undefined,
+        minPrice: q.minPrice || undefined,
+        maxPrice: q.maxPrice || undefined,
+        category: q.category || undefined
+      };
+      const res = await api.get('/books', { params });
       setBooks(res.data);
     } catch (err) {
       console.error(err);
       setBooks([]);
     }
   }
-
-  useEffect(load, []);
+ useEffect(() => {
+  async function fetchBooks() {
+    await load();
+  }
+  fetchBooks();
+}, []);
 
   if (books === null) return <LoadingSpinner />;
 
